@@ -1,0 +1,1 @@
+This is .txt, the contents of this file has been uploaded successfully to the server
