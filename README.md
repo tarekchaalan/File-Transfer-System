@@ -1,4 +1,4 @@
-### README for CPSC 471 Final Project
+### README for CPSC 471 Final Project - TCP Sockets
 
 #### Team Members
 
