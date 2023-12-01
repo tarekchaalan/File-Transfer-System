@@ -56,15 +56,15 @@ After client received files from server using `get` command, files are stored in
 
 ## [Server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py)
 
-`recv_all(sock, numBytes)`: Receives a specific number of bytes from a socket.
-`send_file(dataSock, filePath)`: Sends a file over a socket.
-`handle_client(controlSock, addr)`: Manages commands from a connected client.
+`recv_all(sock, numBytes)`: Receives a specific number of bytes from a socket.<br>
+`send_file(dataSock, filePath)`: Sends a file over a socket.<br>
+`handle_client(controlSock, addr)`: Manages commands from a connected client.<br>
 
 ## [Client.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/client.py)
 
-`find_file(name, path)`: Searches for a file within a directory and its subdirectories.
-`send_command(connSock, command)`: Sends a command to the server via a socket.
-`receive_response(connSock)`: Receives a response from the server via a socket.
+`find_file(name, path)`: Searches for a file within a directory and its subdirectories.<br>
+`send_command(connSock, command)`: Sends a command to the server via a socket.<br>
+`receive_response(connSock)`: Receives a response from the server via a socket.<br>
 
 ---
 
