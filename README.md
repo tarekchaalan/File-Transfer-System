@@ -24,7 +24,7 @@
      - Command on Windows: `python server.py <portnumber>`
      - Command on Mac/Linux: `python3 server.py <portnumber>`
      - `<portnumber>` is the specified port at which ftp server accepts connection requests
-     - For example: `python server.py 1234`
+     - For example: `python / python3 server.py 1234`
 
 2. **Client Execution**:
 
@@ -33,7 +33,7 @@
      - Command on Windows: `python client.py <portnumber>`
      - Command on Mac/Linux: `python3 client.py <portnumber>`
      - `<portnumber>` is the specified port at which ftp server accepts connection requests
-     - For example: `python client.py 1234`
+     - For example: `python / python3 client.py 1234`
    - Once running, use the commands:
      - `put [filename]` -> client puts a file onto the server
      - `get [filename]` -> client retrieves a file from the server
