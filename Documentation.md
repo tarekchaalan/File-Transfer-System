@@ -48,23 +48,142 @@ After client received files from server using `get` command, files are stored in
 
 ## Code Documentation
 
-1. Add comments within the code ([server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py) and [client.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/client.py)) to explain complex sections.
-
+1. Add comments within the code ([client.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/client.py) and [server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py)) to explain complex sections.
 2. Provide information about functions, classes, and modules. Include information on parameters, return values, and any exceptions raised.
 
 ---
 
-## [Server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py)
-
-`recv_all(sock, numBytes)`: Receives a specific number of bytes from a socket.<br>
-`send_file(dataSock, filePath)`: Sends a file over a socket.<br>
-`handle_client(controlSock, addr)`: Manages commands from a connected client.<br>
-
 ## [Client.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/client.py)
 
-`find_file(name, path)`: Searches for a file within a directory and its subdirectories.<br>
-`send_command(connSock, command)`: Sends a command to the server via a socket.<br>
-`receive_response(connSock)`: Receives a response from the server via a socket.<br>
+1.  ```
+    def find_file(name, path='.'):
+
+    Search for a file with a given name within a specified directory and its subdirectories.
+
+    Parameters:
+    - name: The name of the file to find.
+    - path: The directory path to start the search from. Defaults to the current directory.
+
+    Returns:
+    The full path to the file if found, or None if not found.
+    ```
+
+2.  ```
+    def send_command(connSock, command):
+
+    Send a command to the server via a socket, padding the command to a fixed length.
+
+    Parameters:
+    - connSock: The socket object used for the connection.
+    - command: The command string to be sent.
+
+    Returns:
+    None.
+    ```
+
+3.  ```
+    def receive_response(connSock):
+
+    Receive a response from the server via a socket.
+
+    Parameters:
+    - connSock: The socket object used for the connection.
+
+    Returns:
+    The decoded response string from the server.
+    ```
+
+4.  ```
+    def send_file(dataSock, fileName):
+
+    Send a file to the server over a socket.
+
+    Parameters:
+    - dataSock: The socket object used for the data transfer.
+    - fileName: The name of the file to be sent.
+
+    Returns:
+    A boolean indicating whether the file was successfully sent or not.
+    ```
+
+5.  ```
+    def receive_file(dataSock, fileName, clientPort):
+
+    Receive a file from the server and save it to a client-specific directory.
+
+    Parameters:
+    - dataSock: The socket object used for the data transfer.
+    - fileName: The name of the file to be received.
+    - clientPort: The port number of the client, used to create a unique directory.
+
+    Returns:
+    None.
+    ```
+
+6.  ```
+    def main():
+
+    Main function to run the client. Handles connection to the server and user inputs.
+
+    Parameters:
+    None.
+
+    Returns:
+    None.
+    ```
+
+## [Server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py)
+
+1.  ```
+    def recv_all(sock, numBytes):
+
+    Receive a specific number of bytes from a socket.
+
+    Parameters:
+    - sock: The socket object to receive data from.
+    - numBytes: The exact number of bytes to receive.
+
+    Returns:
+    A bytes object containing the received data.
+    ```
+
+2.  ```
+    def send_file(dataSock, filePath):
+
+    Send a file over a socket.
+
+    Parameters:
+    - dataSock: The socket object used for the data transfer.
+    - filePath: The full path of the file to be sent.
+
+    Returns:
+    None.
+    ```
+
+3.  ```
+    def handle_client(controlSock, addr):
+
+    Handle commands from a connected client.
+
+    Parameters:
+    - controlSock: The control socket connected to the client.
+    - addr: The address tuple of the client.
+
+    Returns:
+    None.
+    ```
+
+4.  ```
+    def main():
+
+    Main function to start the server and accept client connections.
+
+    Parameters:
+    None.
+
+    Returns:
+    None.
+    ```
 
 ---
 
