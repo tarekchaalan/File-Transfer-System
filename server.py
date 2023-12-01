@@ -6,6 +6,13 @@ import sys
 def recv_all(sock, numBytes):
     """
     Receive a specific number of bytes from a socket.
+
+    Parameters:
+    - sock: The socket object to receive data from.
+    - numBytes: The exact number of bytes to receive.
+
+    Returns:
+    A bytes object containing the received data.
     """
     recvBuff = b""
     while len(recvBuff) < numBytes:
@@ -18,6 +25,13 @@ def recv_all(sock, numBytes):
 def send_file(dataSock, filePath):
     """
     Send a file over a socket.
+
+    Parameters:
+    - dataSock: The socket object used for the data transfer.
+    - filePath: The full path of the file to be sent.
+
+    Returns:
+    None.
     """
     with open(filePath, "rb") as fileObj:
         while True:
@@ -29,6 +43,13 @@ def send_file(dataSock, filePath):
 def handle_client(controlSock, addr):
     """
     Handle commands from a connected client.
+
+    Parameters:
+    - controlSock: The control socket connected to the client.
+    - addr: The address tuple of the client.
+
+    Returns:
+    None.
     """
     clientIP, clientPort = addr
     try:
@@ -105,6 +126,12 @@ def handle_client(controlSock, addr):
 def main():
     """
     Main function to start the server and accept client connections.
+
+    Parameters:
+    None.
+
+    Returns:
+    None.
     """
     global welcomeDataSock
     if len(sys.argv) > 1:

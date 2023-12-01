@@ -5,6 +5,13 @@ import sys
 def find_file(name, path='.'):
     """
     Search for a file with a given name within a directory and its subdirectories.
+
+    Parameters:
+    - name: The name of the file to find.
+    - path: The directory path to start the search from. Defaults to the current directory.
+
+    Returns:
+    The full path to the file if found, or None if not found.
     """
     for root, dirs, files in os.walk(path):
         if name in files:
@@ -14,12 +21,25 @@ def find_file(name, path='.'):
 def send_command(connSock, command):
     """
     Send a command to the server via a socket, padding it to a fixed length.
+
+    Parameters:
+    - connSock: The socket object used for the connection.
+    - command: The command string to be sent.
+
+    Returns:
+    None.
     """
     connSock.sendall(command.encode().ljust(100, b'\0'))
 
 def receive_response(connSock):
     """
     Receive a response from the server via a socket.
+
+    Parameters:
+    - connSock: The socket object used for the connection.
+
+    Returns:
+    The decoded response string from the server.
     """
     response = connSock.recv(1024).decode().strip('\0')
     return response
@@ -27,6 +47,13 @@ def receive_response(connSock):
 def send_file(dataSock, fileName):
     """
     Send a file to the server over a socket.
+
+    Parameters:
+    - dataSock: The socket object used for the data transfer.
+    - fileName: The name of the file to be sent.
+
+    Returns:
+    A boolean indicating whether the file was successfully sent or not.
     """
     if not os.path.isfile(fileName):
         print(f"File {fileName} does not exist.")
@@ -48,6 +75,14 @@ def send_file(dataSock, fileName):
 def receive_file(dataSock, fileName, clientPort):
     """
     Receive a file from the server and save it to a client-specific directory.
+
+    Parameters:
+    - dataSock: The socket object used for the data transfer.
+    - fileName: The name of the file to be received.
+    - clientPort: The port number of the client, used to create a unique directory.
+
+    Returns:
+    None.
     """
     clientDir = f"Client_{clientPort}_Received"
     if not os.path.exists(clientDir):
@@ -67,6 +102,12 @@ def receive_file(dataSock, fileName, clientPort):
 def main():
     """
     Main function to run the client. Handles connection to the server and user inputs.
+
+    Parameters:
+    None.
+
+    Returns:
+    None.
     """
     serverAddr = "localhost"
     if len(sys.argv) > 1:
