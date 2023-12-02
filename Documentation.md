@@ -48,12 +48,7 @@ After client received files from server using `get` command, files are stored in
 
 ## Code Documentation
 
-1. Add comments within the code ([client.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/client.py) and [server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py)) to explain complex sections.
-2. Provide information about functions, classes, and modules. Include information on parameters, return values, and any exceptions raised.
-
----
-
-## [Client.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/client.py)
+### [Client.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/client.py)
 
 1.  ```
     def find_file(name, path='.'):
@@ -132,7 +127,7 @@ After client received files from server using `get` command, files are stored in
     None.
     ```
 
-## [Server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py)
+### [Server.py](https://github.com/tarekchaalan/File-Transfer-System/blob/main/server.py)
 
 1.  ```
     def recv_all(sock, numBytes):
@@ -185,16 +180,55 @@ After client received files from server using `get` command, files are stored in
     None.
     ```
 
----
 
 ## Protocol Diagram
 
 ![Protocol Diagram](https://i.imgur.com/R6DfL1W.png)
 
-## Installation Instruction
-
-Instructions on how to install and set up the project.
 
 ## Testing
+**1. Test the Server**
 
-Explain how to run tests and provide examples of expected outcomes.
+- **Run Server**
+
+        Example: "python server.py 1234"
+
+        Expected Outcome: The server starts and waits for connections
+
+**2. Test the Client**
+
+- **Run Client**
+
+        Example: "python client.py 1234"
+
+        Expected Outcome: The client is connecting to the server and the user is prompted to enter a command
+
+**3. Test FTP Commands**
+
+- **put Command**
+
+        Allows the user to insert a file into the server
+        Example: "put MSWord.docx"
+
+        Expected Outcome: The client sends the file to the server. If the file you are putting in is invalid, it will say "file <input> does not exist."
+
+- **get Command**
+
+        Allows the user to receive a file from the server
+        Example: "get MSWord.docx"
+
+        Expected Outcome: The client receives the file from the server. If the file you are getting is invalid, it will say "File not found."
+
+- **ls Command**
+
+        Allows the user to view all files frmo the server
+        Example: "ls"
+
+        Expected Outcome: The client displays a list of files from the server, if there are no files on the server, it will display "NONE"
+
+- **quit Command**
+
+        Allows the user to close the connection from client to server
+        Example: "quit"
+
+        Expected Outcome: The client disconnects from the server
